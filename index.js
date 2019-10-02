@@ -1,5 +1,5 @@
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 const app = express()
 app.use(express.json());
 
@@ -73,4 +73,8 @@ const deletedPost = posts.splice(postIndex, 1);
 return res.json(deletedPost);
 });
 
-app.listen(3000)
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => {
+    console.log(`server listening on: ${PORT}`);
+});
